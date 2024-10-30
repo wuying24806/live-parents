@@ -10,30 +10,280 @@
 
     <name>live-parent</name>
 
+    <!-- 版本管理 -->
     <properties>
+        <live.version>3.6.4</live.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <encoding>UTF-8</encoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-        <shiro.version>1.3.2</shiro.version>
-        <freemarker.version>2.3.25-incubating</freemarker.version>
-
-        <slf4j.version>1.7.25</slf4j.version>
-        <guava.version>20.0</guava.version>
-        <jackson.version>2.9.9</jackson.version>
-        <httpclient.version>4.5</httpclient.version>
-        <commons.version>2.6</commons.version>
-        <quartz.version>2.2.0</quartz.version>
-        <fastjson.version>2.0.20</fastjson.version>
-        <dubbo-springboot-starter.version>3.0.10</dubbo-springboot-starter.version>
-        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
-        <layer-cache.version>2.0.8</layer-cache.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <spring-cloud.version>2021.0.8</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-framework.version>5.3.33</spring-framework.version>
+        <spring-boot-admin.version>2.7.15</spring-boot-admin.version>
+        <tobato.version>1.27.2</tobato.version>
+        <kaptcha.version>2.3.3</kaptcha.version>
+        <pagehelper.boot.version>2.0.0</pagehelper.boot.version>
+        <druid.version>1.2.23</druid.version>
+        <dynamic-ds.version>4.2.0</dynamic-ds.version>
+        <commons.io.version>2.13.0</commons.io.version>
+        <velocity.version>2.3</velocity.version>
+        <fastjson.version>2.0.43</fastjson.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <minio.version>8.2.2</minio.version>
+        <poi.version>4.1.2</poi.version>
+        <springdoc.version>1.6.9</springdoc.version>
+        <transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
     </properties>
+
+    <!-- 依赖声明 -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- SpringFramework的依赖配置-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring-framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloud 微服务 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloud Alibaba 微服务 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringBoot 依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- FastDFS 分布式文件系统 -->
+            <dependency>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${tobato.version}</version>
+            </dependency>
+
+            <!-- Springdoc webmvc 依赖配置 -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+
+            <!-- 验证码 -->
+            <dependency>
+                <groupId>pro.fessional</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+
+            <!-- pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
+
+            <!-- io常用工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+
+            <!-- excel工具 -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <!-- 代码生成使用模板 -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+
+            <!-- JSON 解析器和生成器 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- JWT -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <!-- 线程传递值 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+<!--            &lt;!&ndash; 核心模块 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-core</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 接口模块 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-swagger</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 安全模块 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-security</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 数据脱敏 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-sensitive</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 权限范围 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-datascope</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 多数据源 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-datasource</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 分布式事务 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-seata</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 日志记录 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-log</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 缓存服务 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-common-redis</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; 系统接口 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.live</groupId>-->
+<!--                <artifactId>live-api-system</artifactId>-->
+<!--                <version>${live.version}</version>-->
+<!--            </dependency>-->
+
+        </dependencies>
+    </dependencyManagement>
 
     <modules>
 
+        <module>live-gateway</module>
     </modules>
+
+    <dependencies>
+        <!-- bootstrap 启动器 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

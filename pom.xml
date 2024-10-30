@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.live</groupId>
+    <artifactId>live-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>live-parent</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <encoding>UTF-8</encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <shiro.version>1.3.2</shiro.version>
+        <freemarker.version>2.3.25-incubating</freemarker.version>
+
+        <slf4j.version>1.7.25</slf4j.version>
+        <guava.version>20.0</guava.version>
+        <jackson.version>2.9.9</jackson.version>
+        <httpclient.version>4.5</httpclient.version>
+        <commons.version>2.6</commons.version>
+        <quartz.version>2.2.0</quartz.version>
+        <fastjson.version>2.0.20</fastjson.version>
+        <dubbo-springboot-starter.version>3.0.10</dubbo-springboot-starter.version>
+        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
+        <layer-cache.version>2.0.8</layer-cache.version>
+    </properties>
+
+    <modules>
+
+    </modules>
+</project>
